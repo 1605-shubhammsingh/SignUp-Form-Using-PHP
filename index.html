@@ -1,0 +1,73 @@
+<!doctype html>
+<head>
+<script>
+function validate() {
+var name = document.getElementById("name").value;
+var email = document.getElementById("email").value;
+var age = document.getElementById("age").value;
+var firstpassword=document.getElementById("password").value;
+var secondpassword=document.getElementById("rpassword").value;
+var emailReg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+if (name!=""&& username!="" && email!="" && contact!="") 
+{
+	if (email.match(emailReg)) 
+	{
+		if (document.getElementById("male").checked || document.getElementById("female").checked || document.getElementById("other").checked) 
+		{
+			
+				if(firstpassword==secondpassword)
+				{
+					alert("All type of validation has done on OnSubmit event.");
+					return true;
+				} 
+				else
+				{
+					alert("password must be same!");  
+                    return false;  
+				}
+				
+			
+        } 
+		else 
+		{
+			alert("You must select gender.....!");
+			return false;
+		}
+	}	
+	else 
+	{
+		alert("Invalid Email Address...!!!");
+		return false;
+    }
+}
+else 
+{
+alert("All fields are required.....!");
+return false;
+}
+}
+
+</script>
+<title>SignUp Form</title>
+
+</head>
+<body>
+<center><h1>Welcome</h1><br><h2>Enter Your Details Here</h2></center>
+<center><form name="myForm" action="insert.php" onsubmit="return validate()" method="post">
+  Name:<input type="text" name="name" required><br><br>
+  
+  Age:<input type="text" name="age" required><br><br>
+  Gender:<br>
+  <input type="radio" name="gender" value="male" checked required> Male<br>
+  <input type="radio" name="gender" value="female" required> Female<br>
+  <input type="radio" name="gender" value="other" required> Other<br>
+  Email:<input type="text" name="email" required><br><br>
+  Password:<input type="password" name="password" required><br><br>
+  Repeat Password:<input type="password" name="rpassword" required><br><br>
+  <br><br>
+     <input type="submit" value="submit">
+
+</form>
+</center>
+</body>
+</html>
